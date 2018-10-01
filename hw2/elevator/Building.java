@@ -15,7 +15,7 @@ public class Building {
 
     public static final int FLOORS = 7;
     private Floor[] floors;
-    private Elevator elevator;
+    //private Elevator elevator;
 
     public Building() {
 
@@ -26,6 +26,7 @@ public class Building {
     }
 
     public Elevator getElevator() {
+        Elevator elevator = new Elevator();
         return elevator;
     }
 }

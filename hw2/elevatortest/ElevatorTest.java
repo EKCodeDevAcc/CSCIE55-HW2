@@ -41,7 +41,7 @@ public class ElevatorTest
     }
 
     // Check that passengers get on and off correctly.
-    /*
+    
     @Test
     public void disembark() throws ElevatorFullException
     {
@@ -69,7 +69,7 @@ public class ElevatorTest
         elevator.move();
         checkElevator(elevator, 7, 0);
     }
-
+    /*
     // Check that passengers on higher floors can call and board the elevator, and then
     // disembark on the ground floor.
     @Test

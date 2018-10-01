@@ -22,13 +22,11 @@ public class Elevator extends Building {
      * currentPassengers  number of passengers in the elevator which is equal to totalPassengers by default.
      */
     
-    //private static final int NUMBER_FLOORS = 7;
     public static final int CAPACITY = 10;
     private int currentFloor = 1;
     private String direction = "Up";
-    private int[] passengers = {0, 0, 2, 0, 1, 0, 0};
-    private int totalPassengers = 3;
-    private int currentPassengers = totalPassengers;
+    private int[] passengers = {0, 0, 0, 0, 0, 0, 0};
+    private int currentPassengers = 0;
 
     /**
      * move method which performs to change the direction of floor and change floor.
@@ -49,6 +47,8 @@ public class Elevator extends Building {
         } else {
             currentFloor--;
         }
+
+        passengers[currentFloor-1] = 0;
     }
 
     /**
@@ -62,8 +62,8 @@ public class Elevator extends Building {
         int zeroCount = 0;
         
         //try {
-            currentPassengers = currentPassengers - passengers[destinationFloor-1];
-            passengers[destinationFloor-1] = 0;
+            currentPassengers++;
+            passengers[destinationFloor-1]++;
         /*} catch (ElevatorFullException efe) {
             System.out.println(efe.getMessage());
         }*/
