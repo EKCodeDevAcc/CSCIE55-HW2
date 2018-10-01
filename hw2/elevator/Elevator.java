@@ -25,7 +25,7 @@ public class Elevator extends Building {
     public static final int CAPACITY = 10;
     private int currentFloor = 1;
     private String direction = "Up";
-    private int[] passengers = {0, 0, 0, 0, 0, 0, 0};
+    private int[] passengers = new int[Building.FLOORS];
     private int currentPassengers = 0;
 
     /**
@@ -48,7 +48,7 @@ public class Elevator extends Building {
             currentFloor--;
         }
 
-        passengers[currentFloor-1] = 0;
+        currentPassengers = currentPassengers - passengers[currentFloor - 1];
     }
 
     /**
@@ -63,7 +63,7 @@ public class Elevator extends Building {
         
         //try {
             currentPassengers++;
-            passengers[destinationFloor-1]++;
+            passengers[destinationFloor - 1]++;
         /*} catch (ElevatorFullException efe) {
             System.out.println(efe.getMessage());
         }*/
