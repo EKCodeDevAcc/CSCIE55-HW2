@@ -15,14 +15,15 @@ public class Building {
 
     public static final int FLOORS = 7;
     private Floor[] floors;
-    //private Elevator elevator;
 
     public Building() {
 
     }
 
     public Floor getFloor(int n) {
-	return floors[n];
+        Building building = new Building();
+        Floor floors = new Floor(building, n);
+        return floors;
     }
 
     public Elevator getElevator() {

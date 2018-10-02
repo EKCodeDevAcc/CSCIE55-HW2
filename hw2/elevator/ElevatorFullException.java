@@ -10,6 +10,7 @@ package hw2.elevator;
 
 import hw2.elevator.Floor;
 import hw2.elevator.Elevator;
+import hw2.elevator.Building;
 
 public class ElevatorFullException extends Exception {
 

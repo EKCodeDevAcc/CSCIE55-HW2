@@ -27,6 +27,7 @@ public class Elevator extends Building {
     private String direction = "Up";
     private int[] passengers = new int[Building.FLOORS];
     private int currentPassengers = 0;
+    private int moveCounter = 0;
 
     /**
      * move method which performs to change the direction of floor and change floor.
@@ -34,6 +35,7 @@ public class Elevator extends Building {
      * Depends on the current direction, change currentFloor value when move method is called.
      */
     public void move() {
+        Building building = new Building();
         int numberFloors = Building.FLOORS;
 
         if (currentFloor == 1) {
@@ -48,7 +50,20 @@ public class Elevator extends Building {
             currentFloor--;
         }
 
-        currentPassengers = currentPassengers - passengers[currentFloor - 1];
+        int floorChecker = building.getFloor(currentFloor).checkFloorCalled();
+        
+        if (floorChecker == 0) {
+            currentPassengers = currentPassengers - passengers[currentFloor - 1];
+        } else {
+            if (direction == "Up") {
+                currentPassengers = currentPassengers - passengers[currentFloor - 1] + building.getFloor(currentFloor).getPassengersWaiting();
+            } else if (direction == "Down") {
+                currentPassengers = currentPassengers + 0;
+                building.getFloor(currentFloor).setPassengersWaiting();
+            }
+            
+            moveCounter++;  	
+        }
     }
 
     /**
